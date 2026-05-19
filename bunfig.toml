@@ -1,0 +1,15 @@
+# Supply-chain freshness budget · 7 days · conservative default per ADR-004
+# Override per-package below if a hotfix needs immediate install.
+# All overrides are logged and surface in project audit log.
+
+[install]
+minimumReleaseAge = 604800  # 7 days in seconds
+
+# Allow-list packages bypassing the freshness budget.
+# Only @supacode/* is permitted by default. Add packages here only
+# with written justification, captured in the audit log.
+minimumReleaseAgeExcludes = [
+  "@supacode/vite-tanstack-config",
+  "@supacode/seo-toolkit",
+  "@supacode/freshness-check"
+]

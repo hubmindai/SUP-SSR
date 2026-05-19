@@ -1,0 +1,101 @@
+/* =========================================================
+   SupaCode Brand System v5 · OKLCH design tokens
+   Cream surface · Coral accent · Square corners · No shadows
+   ========================================================= */
+
+@import "tailwindcss" source(none);
+@source "../src";
+
+@theme inline {
+  /* --- color tokens, OKLCH --- */
+  --color-cream: oklch(0.953 0.005 95);          /* #F4F4F1 */
+  --color-cream-deep: oklch(0.926 0.005 95);     /* #ECEBE5 */
+  --color-paper: oklch(0.971 0.004 90);          /* #FBFAF6 */
+  --color-paper-deep: oklch(0.946 0.005 90);     /* #F4F2EB */
+  --color-ink: oklch(0.171 0 0);                 /* #1A1A1A */
+  --color-ink-soft: oklch(0.224 0 0);            /* #2E2E2C */
+  --color-mute: oklch(0.483 0.004 90);           /* #6C6A63 */
+  --color-mute-soft: oklch(0.604 0.005 85);      /* #8E8B82 */
+  --color-mute-faint: oklch(0.755 0.006 85);     /* #B8B5AC */
+  --color-coral: oklch(0.624 0.179 35);          /* #D85A3E */
+  --color-coral-deep: oklch(0.514 0.184 35);     /* #B84628 */
+  --color-coral-wash: oklch(0.877 0.058 32);     /* #F5DBD0 */
+  --color-coral-faint: oklch(0.939 0.029 32);    /* #FAEAE3 */
+  --color-olive: oklch(0.402 0.052 110);         /* #5C5E3A */
+  --color-gold: oklch(0.633 0.114 76);           /* #B98A2D */
+  --color-gold-wash: oklch(0.911 0.062 92);      /* #F4E8C9 */
+
+  /* --- shadcn semantic mapping --- */
+  --color-background: var(--color-cream);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--color-paper);
+  --color-card-foreground: var(--color-ink);
+  --color-popover: var(--color-paper);
+  --color-popover-foreground: var(--color-ink);
+  --color-primary: var(--color-coral);
+  --color-primary-foreground: var(--color-paper);
+  --color-secondary: var(--color-cream-deep);
+  --color-secondary-foreground: var(--color-ink);
+  --color-muted: var(--color-cream-deep);
+  --color-muted-foreground: var(--color-mute);
+  --color-accent: var(--color-coral-faint);
+  --color-accent-foreground: var(--color-coral-deep);
+  --color-destructive: var(--color-coral-deep);
+  --color-destructive-foreground: var(--color-paper);
+  --color-border: var(--color-ink);
+  --color-input: var(--color-ink);
+  --color-ring: var(--color-coral);
+
+  /* --- typography --- */
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-sans: "Inter Tight", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --font-hand: "Caveat", cursive;
+
+  /* --- radius (square by default) --- */
+  --radius: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+}
+
+/* Layer: base */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11", "calt";
+    line-height: 1.55;
+  }
+
+  /* Display headings prefer Fraunces italic by default. Override per route. */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.012em;
+    line-height: 1.1;
+  }
+
+  /* Coral focus ring across the board. */
+  :where(button, a, input, textarea, select):focus-visible {
+    outline: 2px solid var(--color-coral);
+    outline-offset: 2px;
+  }
+}
+
+/* Helper for the hand-written marginalia voice */
+.handwritten {
+  font-family: var(--font-hand);
+  color: var(--color-coral-deep);
+  font-size: 1.25em;
+  line-height: 1.2;
+}
